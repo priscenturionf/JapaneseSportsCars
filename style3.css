@@ -1,0 +1,425 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos Globales */
+body, html {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #f2f2f2;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: ''; /* Crea el pseudo-elemento */
+    position: fixed; /* Fija el fondo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(img/fondo-auto-neon.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Coloca el fondo detrás del contenido */
+    filter: brightness(50%);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: absolute; /* Fija el nav sobre la imagen */
+    width: 100%;
+    z-index: 10; /* Hace que el nav quede sobre el contenido */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    top: 0; /* Asegura que esté en la parte superior */
+}
+.header .logo, h1 {
+    font-size: 3em;
+    color: #ff003c;
+    text-shadow: 
+        0 0 5px #ff003c, 
+        0 0 10px #ff003c, 
+        0 0 20px #ff003c, 
+        0 0 40px #ff003c, 
+        0 0 80px #ff003c; /* Crea el efecto neón */
+    animation: flicker 1.5s infinite alternate;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: 'Bebas Neue', sans-serif; /* Para un estilo más fuerte */
+    position: relative;
+}
+
+/* Animación de parpadeo */
+@keyframes flicker {
+    0% { 
+        opacity: 1;
+        text-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c, 0 0 20px #ff003c, 0 0 40px #ff003c, 0 0 80px #ff003c;
+    }
+    50% { 
+        opacity: 0.8;
+        text-shadow: 0 0 3px #ff003c, 0 0 6px #ff003c, 0 0 15px #ff003c, 0 0 30px #ff003c, 0 0 60px #ff003c;
+    }
+    100% { 
+        opacity: 1;
+        text-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c, 0 0 20px #ff003c, 0 0 40px #ff003c, 0 0 80px #ff003c;
+    }
+}
+.header .logo, h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 0, 60, 0.6), transparent);
+    animation: lightPass 2s infinite;
+}
+
+@keyframes lightPass {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Logo del Header */
+.header h1 {
+    color: #ffffff;
+    font-size: 20pt;
+    text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+}
+
+.nav a {
+    color: #f2f2f2;
+    margin: 0 15px;
+    font-size: 22px;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px; /* Espacio para el subrayado */
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #ff003c; /* Cambia el color del texto al pasar el mouse */
+}
+
+/* Efecto de subrayado neon rojo */
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ff003c; /* Color rojo neón */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav a:hover::after {
+    transform: scaleX(1); /* Hace que el subrayado se expanda */
+    transform-origin: bottom left;
+}
+
+.brand-logos {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    gap: 50px;
+    background-color: transparent;
+    padding: 20px 0;
+}
+
+.brand-logos:hover {
+    cursor: pointer;
+}
+
+.brand-logos img {
+    width: 100px;
+    height: auto;
+    margin: 10px;
+    object-fit: contain;
+}
+
+.models-grid img {
+    width: 100%;
+    height: 200px; /* Ajusta esta altura para el tamaño uniforme deseado */
+    object-fit: cover; /* Asegura que las imágenes se ajusten sin deformarse */
+    border-radius: 8px; /* Opcional: esquinas redondeadas */
+    transition: transform 0.5s ease;
+}
+
+.models-grid img:hover{
+        transform: scale(1.05); /* Efecto al pasar el mouse */
+
+}
+
+
+.models-grid:hover{
+    cursor: pointer;
+
+}
+
+.model {
+    display: none; /* Las imágenes de los modelos estarán ocultas inicialmente */
+    text-align: center;
+    margin: 10px;
+}
+.model img {
+    width: 100%;
+    max-width: 400px; /* Limita el tamaño máximo de las imágenes */
+}
+.model img:hover{
+    box-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+}
+.model-title {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+/* Grid de Imágenes */
+.grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 300px;
+    background-color: #333;
+}
+.image-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    color: #f2f2f2;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    text-align: center;
+    font-size: 1em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image:hover img {
+    transform: scale(1.05);
+}
+
+.image:hover .image-title {
+    opacity: 1; /* Muestra el texto al hacer hover */
+}
+.logo img {
+    width: 80px; /* Ajusta el tamaño del logo */
+    cursor: pointer;
+}
+
+.models-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr); /* Ajusta el tamaño mínimo aquí */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.image:hover img {
+    transform: scale(1.05);
+}
+
+.image:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+}
+.image:hover .image-title {
+    opacity: 1; /* Muestra el texto al hacer hover */
+}
+
+/* Lightbox estilos */
+.lightbox {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    }
+
+.lightbox-content {
+    max-width: 80%;
+    max-height: 80%;
+    position: relative;
+    }
+#lightbox-img {
+    width: 80%;
+    height: auto;
+    max-width: 800px;
+    display: block;
+    margin: 0 auto;
+    }
+
+button {
+    position: absolute;
+    top: 50%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    font-size: 50px;
+    cursor: pointer;
+    padding: 16px;
+    z-index: 10;
+    transition: 0.3s;
+}
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+}
+.lightbox-title {
+    position: absolute;
+    bottom: 20px; /* Ajusta esta distancia para mover el título hacia abajo */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 20pt; /* Ajusta el tamaño del texto si es necesario */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Para hacerlo más legible sobre la imagen */
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro detrás del texto */
+    padding: 10px;
+}
+/* Botón de cerrar en el lightbox */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    color: #f2f2f2;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para mejor visibilidad */
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ff003c; /* Color rojo neón al pasar el mouse */
+}
+footer {
+    margin-top: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Opcional: Fondo oscuro para el footer */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Responsive: Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .header {
+        flex-direction: column; /* Apilar el logo y el menú en dispositivos pequeños */
+        text-align: center;
+    }
+
+    .header h1 {
+        font-size: 1.5rem; /* Reducir tamaño del logo */
+    }
+
+    /* Menú en hamburguesa */
+    .nav {
+        display: none; /* Ocultar menú por defecto */
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .nav a {
+        font-size: 1.2rem;
+    }
+
+    /* Botón hamburguesa */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        background-color: #fff;
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s;
+    }
+
+    /* Mostrar el menú cuando se active */
+    .nav.active {
+        display: flex;
+    }
+
+    /* Estilo de la hamburguesa cuando se activa */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg);
+        position: relative;
+        top: 8px;
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        position: relative;
+        top: -8px;
+    }
+}
+
+/* Para pantallas grandes */
+@media (min-width: 769px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .nav {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: none; /* Ocultar el botón de hamburguesa en pantallas grandes */
+    }
+}

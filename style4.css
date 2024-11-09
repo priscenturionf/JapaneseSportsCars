@@ -1,0 +1,239 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos Globales */
+body, html {
+    height: 100%; /* Asegura que la página ocupe toda la altura de la ventana */
+    overflow: hidden; /* Evita el scroll */
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #f2f2f2;
+    background-color: #121212;
+    background-image: url(img/peakpx.jpg);
+    background-position: center;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: absolute; /* Fija el nav sobre la imagen */
+    width: 100%;
+    z-index: 10; /* Hace que el nav quede sobre el contenido */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    top: 0; /* Asegura que esté en la parte superior */
+}
+.header .logo, h1 {
+    font-size: 3em;
+    color: #ff003c;
+    text-shadow: 
+        0 0 5px #ff003c, 
+        0 0 10px #ff003c, 
+        0 0 20px #ff003c, 
+        0 0 40px #ff003c, 
+        0 0 80px #ff003c; /* Crea el efecto neón */
+    animation: flicker 1.5s infinite alternate;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: 'Bebas Neue', sans-serif; /* Para un estilo más fuerte */
+    position: relative;
+}
+
+/* Animación de parpadeo */
+@keyframes flicker {
+    0% { 
+        opacity: 1;
+        text-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c, 0 0 20px #ff003c, 0 0 40px #ff003c, 0 0 80px #ff003c;
+    }
+    50% { 
+        opacity: 0.8;
+        text-shadow: 0 0 3px #ff003c, 0 0 6px #ff003c, 0 0 15px #ff003c, 0 0 30px #ff003c, 0 0 60px #ff003c;
+    }
+    100% { 
+        opacity: 1;
+        text-shadow: 0 0 5px #ff003c, 0 0 10px #ff003c, 0 0 20px #ff003c, 0 0 40px #ff003c, 0 0 80px #ff003c;
+    }
+}
+.header .logo, h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 0, 60, 0.6), transparent);
+    animation: lightPass 2s infinite;
+}
+
+@keyframes lightPass {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Logo del Header */
+.header h1 {
+    color: #ffffff;
+    font-size: 20pt;
+    text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+}
+
+.nav a {
+    color: #f2f2f2;
+    margin: 0 15px;
+    font-size: 22px;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px; /* Espacio para el subrayado */
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #ff003c; /* Cambia el color del texto al pasar el mouse */
+}
+
+/* Efecto de subrayado neon rojo */
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ff003c; /* Color rojo neón */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav a:hover::after {
+    transform: scaleX(1); /* Hace que el subrayado se expanda */
+    transform-origin: bottom left;
+}
+
+/* Hero Section (Capa oscura) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.37); /* Color oscuro con opacidad */
+    z-index: 1; /* Asegura que la capa oscura quede sobre la imagen, pero debajo del texto */
+}
+.hero h2, .hero p {
+    position: relative;
+    z-index: 2; /* Asegura que el texto quede encima de la capa oscura */
+}
+
+.hero h2 {
+    font-size: 3em;
+    color: #ff003c;
+    text-shadow: 0 0 30px #000000;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px #ff003c;
+}
+.contacto {
+    padding: 10px 10px;
+    text-align: center;
+    color: #f2f2f2;
+    background-color: #1f1f1f;
+    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+    border-radius: 8px;
+    margin: 90px auto;
+    max-width: 500px;
+}
+
+.contacto h2 {
+    font-size: 3rem;
+    color: #ff003c;
+    text-shadow: 0 0 10px #ff003c;
+    margin-bottom: 20px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.contacto p {
+    font-size:12pt;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin: 5px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 12pt;
+    color: #f2f2f2;
+    margin-top: 40px;
+    display: block;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    resize: none;
+    background-color: #333;
+    color: #f2f2f2;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 12pt;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff003c; /* Resalta el campo con rojo neón al foco */
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.btn-enviar {
+    background-color: #ff003c;
+    color: #f2f2f2;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #e60035; /* Un tono de rojo más oscuro */
+    transform: scale(1.05); /* Agranda un poco el botón */
+}
+
+.btn-enviar:active {
+    transform: scale(0.95); /* Pequeño efecto de click */
+}
+
+.contacto {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

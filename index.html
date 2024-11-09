@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <title>Autos Deportivos Japoneses</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Japanese Sports Cars</h1>
+        
+        <!-- Botón de hamburguesa -->
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    
+        <!-- Menú de navegación -->
+        <nav class="nav">
+            <a href="#inicio">Inicio</a>
+            <a href="modelos.html">Modelos</a>
+            <a href="galeria.html">Galería</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+    <section id="hero" class="hero">
+        <h2>Explora los Autos Deportivos Japoneses</h2>
+        <p>Modelos legendarios de alto rendimiento, diseño y potencia.</p>
+        <a href="galeria.html" class="cta-button">Descubre más</a>
+    </section>
+    <script>
+        // Seleccionar el botón hamburguesa y el menú
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav');
+
+        // Agregar un evento de clic para alternar la visibilidad del menú
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active'); // Muestra u oculta el menú
+            menuToggle.classList.toggle('active'); // Cambia el estilo del botón hamburguesa
+        });
+    </script>
+</body>
+</html>
