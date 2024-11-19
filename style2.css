@@ -4,15 +4,15 @@
     box-sizing: border-box;
 }
 
-/* Estilos Globales */
+
 body, html {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
     color: #f2f2f2;
-    height: 100%; /* Asegura que la altura del body cubra todo */
+    height: 100%; 
 }
-/* Fondo oscuro y transparente para toda la página */
+
 body::before {
     content: '';
     position: absolute;
@@ -20,15 +20,15 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.596); /* Fondo oscuro con opacidad */
+    background-color: rgba(0, 0, 0, 0.596);
     background-image: url(img/peakpx.jpg);
     background-size: cover;
     background-position: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     color: #f2f2f2;
     text-align: center;
     padding: 0 20px;
-    background-color: rgba(0, 0, 0, 0.678); /* Sombra para mejor legibilidad */
+    background-color: rgba(0, 0, 0, 0.678); 
 }
 
 .header {
@@ -36,11 +36,11 @@ body::before {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    position: absolute; /* Fija el nav sobre la imagen */
+    position: absolute; 
     width: 100%;
-    z-index: 10; /* Hace que el nav quede sobre el contenido */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
-    top: 0; /* Asegura que esté en la parte superior */
+    z-index: 10; 
+    backdrop-filter: blur(5px); 
+    top: 0; 
 }
 .header .logo, h1 {
     font-size: 3em;
@@ -50,15 +50,15 @@ body::before {
         0 0 10px #ff003c, 
         0 0 20px #ff003c, 
         0 0 40px #ff003c, 
-        0 0 80px #ff003c; /* Crea el efecto neón */
+        0 0 80px #ff003c; 
     animation: flicker 1.5s infinite alternate;
     font-weight: bold;
     letter-spacing: 2px;
-    font-family: 'Bebas Neue', sans-serif; /* Para un estilo más fuerte */
+    font-family: 'Bebas Neue', sans-serif; 
     position: relative;
 }
 
-/* Animación de parpadeo */
+
 @keyframes flicker {
     0% { 
         opacity: 1;
@@ -89,7 +89,7 @@ body::before {
     100% { left: 100%; }
 }
 
-/* Logo del Header */
+
 .header h1 {
     color: #ffffff;
     font-size: 20pt;
@@ -102,15 +102,15 @@ body::before {
     font-size: 22px;
     text-decoration: none;
     position: relative;
-    padding-bottom: 5px; /* Espacio para el subrayado */
+    padding-bottom: 5px; 
     transition: color 0.3s ease;
 }
 
 .nav a:hover {
-    color: #ff003c; /* Cambia el color del texto al pasar el mouse */
+    color: #ff003c; 
 }
 
-/* Efecto de subrayado neon rojo */
+
 .nav a::after {
     content: '';
     position: absolute;
@@ -118,19 +118,17 @@ body::before {
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #ff003c; /* Color rojo neón */
+    background-color: #ff003c;
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
 }
 
 .nav a:hover::after {
-    transform: scaleX(1); /* Hace que el subrayado se expanda */
+    transform: scaleX(1); 
     transform-origin: bottom left;
 }
 
-
-/* Hero Section */
 .hero {
     display: flex;
     flex-direction: column;
@@ -139,13 +137,13 @@ body::before {
     background-image: url(img/fondo-pantalla-onda-sintetica.jpg);
     background-size: cover;
     background-position: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
     color: #f2f2f2;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.678); /* Sombra para mejor legibilidad */
+    background-color: rgba(0, 0, 0, 0.678); 
     position: relative;
 }
-/* Hero Section (Capa oscura) */
+
 .hero::before {
     content: '';
     position: absolute;
@@ -153,11 +151,11 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.37); /* Color oscuro con opacidad */
-    z-index: 1; /* Asegura que la capa oscura quede sobre la imagen, pero debajo del texto */
+    background-color: rgba(0, 0, 0, 0.37); 
+    z-index: 1; 
 }
 
-/* Galería */
+
 .galeria {
     padding: 10px 20px;
     background-color: #1f1f1f;
@@ -171,7 +169,7 @@ body::before {
     margin-bottom: 50px;
 }
 
-/* Grid de Imágenes */
+
 .grid {
     display: grid;
     gap: 15px;
@@ -192,7 +190,7 @@ body::before {
     right: 0;
     padding: 10px;
     color: #f2f2f2;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    background-color: rgba(0, 0, 0, 0.7); 
     text-align: center;
     font-size: 1em;
     opacity: 0;
@@ -214,12 +212,12 @@ body::before {
     box-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
 }
 .image:hover .image-title {
-    opacity: 1; /* Muestra el texto al hacer hover */
+    opacity: 1; 
 }
 
-/* Lightbox estilos */
+
 .lightbox {
-    display: none; /* Inicialmente oculto */
+    display: none; 
     position: fixed;
     z-index: 999;
     top: 0;
@@ -278,23 +276,23 @@ button:hover {
 }
 .lightbox-title {
     position: absolute;
-    bottom: 20px; /* Ajusta esta distancia para mover el título hacia abajo */
+    bottom: 20px; 
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    font-size: 20pt; /* Ajusta el tamaño del texto si es necesario */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Para hacerlo más legible sobre la imagen */
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro detrás del texto */
+    font-size: 20pt; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 10px;
 }
-/* Botón de cerrar en el lightbox */
+
 .close {
     position: absolute;
     top: 20px;
     right: 20px;
     font-size: 2em;
     color: #f2f2f2;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para mejor visibilidad */
+    background-color: rgba(0, 0, 0, 0.7); 
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 50%;
@@ -302,10 +300,9 @@ button:hover {
 }
 
 .close:hover {
-    color: #ff003c; /* Color rojo neón al pasar el mouse */
-}
+    color: #ff003c; 
 
-/* Footer */
+
 .footer {
     background-color: #000000;
     text-align: center;
@@ -314,23 +311,23 @@ button:hover {
     font-size: 0.9em;
 }
 
-/* Responsive: Ajustes para pantallas pequeñas */
+
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: repeat(1, 1fr);
     }
     .header {
-        flex-direction: column; /* Apilar el logo y el menú en dispositivos pequeños */
+        flex-direction: column; 
         text-align: center;
     }
 
     .header h1 {
-        font-size: 1.5rem; /* Reducir tamaño del logo */
+        font-size: 1.5rem; 
     }
 
-    /* Menú en hamburguesa */
+
     .nav {
-        display: none; /* Ocultar menú por defecto */
+        display: none; 
         flex-direction: column;
         gap: 15px;
         margin-top: 20px;
@@ -340,7 +337,7 @@ button:hover {
         font-size: 1.2rem;
     }
 
-    /* Botón hamburguesa */
+
     .menu-toggle {
         display: block;
         cursor: pointer;
@@ -355,12 +352,12 @@ button:hover {
         transition: all 0.3s;
     }
 
-    /* Mostrar el menú cuando se active */
+
     .nav.active {
         display: flex;
     }
 
-    /* Estilo de la hamburguesa cuando se activa */
+
     .menu-toggle.active span:nth-child(1) {
         transform: rotate(45deg);
         position: relative;
@@ -378,7 +375,7 @@ button:hover {
     }
 }
 
-/* Para pantallas grandes */
+
 @media (min-width: 769px) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
@@ -388,6 +385,6 @@ button:hover {
     }
 
     .menu-toggle {
-        display: none; /* Ocultar el botón de hamburguesa en pantallas grandes */
+        display: none; 
     }
 }

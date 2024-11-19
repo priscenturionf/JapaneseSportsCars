@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-/* Estilos Globales */
 body, html {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
@@ -19,8 +18,8 @@ body, html {
 }
 
 body::before {
-    content: ''; /* Crea el pseudo-elemento */
-    position: fixed; /* Fija el fondo */
+    content: ''; 
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
@@ -28,7 +27,7 @@ body::before {
     background-image: url(img/fondo-auto-neon.jpg);
     background-size: cover;
     background-position: center;
-    z-index: -1; /* Coloca el fondo detrás del contenido */
+    z-index: -1; 
     filter: brightness(50%);
 }
 
@@ -45,11 +44,11 @@ body::before {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    position: absolute; /* Fija el nav sobre la imagen */
+    position: absolute;
     width: 100%;
-    z-index: 10; /* Hace que el nav quede sobre el contenido */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
-    top: 0; /* Asegura que esté en la parte superior */
+    z-index: 10; 
+    backdrop-filter: blur(5px); 
+    top: 0; 
 }
 .header .logo, h1 {
     font-size: 3em;
@@ -59,15 +58,15 @@ body::before {
         0 0 10px #ff003c, 
         0 0 20px #ff003c, 
         0 0 40px #ff003c, 
-        0 0 80px #ff003c; /* Crea el efecto neón */
+        0 0 80px #ff003c; 
     animation: flicker 1.5s infinite alternate;
     font-weight: bold;
     letter-spacing: 2px;
-    font-family: 'Bebas Neue', sans-serif; /* Para un estilo más fuerte */
+    font-family: 'Bebas Neue', sans-serif;
     position: relative;
 }
 
-/* Animación de parpadeo */
+
 @keyframes flicker {
     0% { 
         opacity: 1;
@@ -98,7 +97,6 @@ body::before {
     100% { left: 100%; }
 }
 
-/* Logo del Header */
 .header h1 {
     color: #ffffff;
     font-size: 20pt;
@@ -111,15 +109,15 @@ body::before {
     font-size: 22px;
     text-decoration: none;
     position: relative;
-    padding-bottom: 5px; /* Espacio para el subrayado */
+    padding-bottom: 5px; 
     transition: color 0.3s ease;
 }
 
 .nav a:hover {
-    color: #ff003c; /* Cambia el color del texto al pasar el mouse */
+    color: #ff003c; 
 }
 
-/* Efecto de subrayado neon rojo */
+
 .nav a::after {
     content: '';
     position: absolute;
@@ -127,14 +125,14 @@ body::before {
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #ff003c; /* Color rojo neón */
+    background-color: #ff003c; 
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
 }
 
 .nav a:hover::after {
-    transform: scaleX(1); /* Hace que el subrayado se expanda */
+    transform: scaleX(1);
     transform-origin: bottom left;
 }
 
@@ -160,14 +158,14 @@ body::before {
 
 .models-grid img {
     width: 100%;
-    height: 200px; /* Ajusta esta altura para el tamaño uniforme deseado */
-    object-fit: cover; /* Asegura que las imágenes se ajusten sin deformarse */
-    border-radius: 8px; /* Opcional: esquinas redondeadas */
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px; 
     transition: transform 0.5s ease;
 }
 
 .models-grid img:hover{
-        transform: scale(1.05); /* Efecto al pasar el mouse */
+        transform: scale(1.05); 
 
 }
 
@@ -178,13 +176,13 @@ body::before {
 }
 
 .model {
-    display: none; /* Las imágenes de los modelos estarán ocultas inicialmente */
+    display: none;
     text-align: center;
     margin: 10px;
 }
 .model img {
     width: 100%;
-    max-width: 400px; /* Limita el tamaño máximo de las imágenes */
+    max-width: 400px; 
 }
 .model img:hover{
     box-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
@@ -193,7 +191,7 @@ body::before {
     margin-top: 10px;
     font-size: 1.2em;
 }
-/* Grid de Imágenes */
+
 .grid {
     display: grid;
     gap: 15px;
@@ -214,7 +212,7 @@ body::before {
     right: 0;
     padding: 10px;
     color: #f2f2f2;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
     font-size: 1em;
     opacity: 0;
@@ -232,17 +230,17 @@ body::before {
 }
 
 .image:hover .image-title {
-    opacity: 1; /* Muestra el texto al hacer hover */
+    opacity: 1; 
 }
 .logo img {
-    width: 80px; /* Ajusta el tamaño del logo */
+    width: 80px; 
     cursor: pointer;
 }
 
 .models-grid {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(4, 1fr); /* Ajusta el tamaño mínimo aquí */
+    grid-template-columns: repeat(4, 1fr); 
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -257,12 +255,12 @@ body::before {
     box-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
 }
 .image:hover .image-title {
-    opacity: 1; /* Muestra el texto al hacer hover */
+    opacity: 1; 
 }
 
-/* Lightbox estilos */
+
 .lightbox {
-    display: none; /* Inicialmente oculto */
+    display: none;
     position: fixed;
     z-index: 999;
     top: 0;
@@ -313,23 +311,23 @@ button:hover {
 }
 .lightbox-title {
     position: absolute;
-    bottom: 20px; /* Ajusta esta distancia para mover el título hacia abajo */
+    bottom: 20px; 
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    font-size: 20pt; /* Ajusta el tamaño del texto si es necesario */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Para hacerlo más legible sobre la imagen */
-    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro detrás del texto */
+    font-size: 20pt; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); 
+    background-color: rgba(0, 0, 0, 0.6); 
     padding: 10px;
 }
-/* Botón de cerrar en el lightbox */
+
 .close {
     position: absolute;
     top: 20px;
     right: 20px;
     font-size: 2em;
     color: #f2f2f2;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para mejor visibilidad */
+    background-color: rgba(0, 0, 0, 0.7); 
     padding: 5px 10px;
     cursor: pointer;
     border-radius: 50%;
@@ -337,32 +335,31 @@ button:hover {
 }
 
 .close:hover {
-    color: #ff003c; /* Color rojo neón al pasar el mouse */
-}
+    color: #ff003c;
 footer {
     margin-top: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* Opcional: Fondo oscuro para el footer */
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     text-align: center;
 }
 
-/* Responsive: Ajustes para pantallas pequeñas */
+
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: repeat(1, 1fr);
     }
     .header {
-        flex-direction: column; /* Apilar el logo y el menú en dispositivos pequeños */
+        flex-direction: column; 
         text-align: center;
     }
 
     .header h1 {
-        font-size: 1.5rem; /* Reducir tamaño del logo */
+        font-size: 1.5rem; 
     }
 
-    /* Menú en hamburguesa */
+
     .nav {
-        display: none; /* Ocultar menú por defecto */
+        display: none; 
         flex-direction: column;
         gap: 15px;
         margin-top: 20px;
@@ -372,7 +369,7 @@ footer {
         font-size: 1.2rem;
     }
 
-    /* Botón hamburguesa */
+
     .menu-toggle {
         display: block;
         cursor: pointer;
@@ -387,12 +384,12 @@ footer {
         transition: all 0.3s;
     }
 
-    /* Mostrar el menú cuando se active */
+
     .nav.active {
         display: flex;
     }
 
-    /* Estilo de la hamburguesa cuando se activa */
+
     .menu-toggle.active span:nth-child(1) {
         transform: rotate(45deg);
         position: relative;
@@ -410,7 +407,7 @@ footer {
     }
 }
 
-/* Para pantallas grandes */
+
 @media (min-width: 769px) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
@@ -420,6 +417,6 @@ footer {
     }
 
     .menu-toggle {
-        display: none; /* Ocultar el botón de hamburguesa en pantallas grandes */
+        display: none; 
     }
 }

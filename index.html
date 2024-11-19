@@ -14,14 +14,14 @@
     <header class="header">
         <h1>Japanese Sports Cars</h1>
         
-        <!-- Botón de hamburguesa -->
+
         <div class="menu-toggle">
             <span></span>
             <span></span>
             <span></span>
         </div>
     
-        <!-- Menú de navegación -->
+
         <nav class="nav">
             <a href="#inicio">Inicio</a>
             <a href="modelos.html">Modelos</a>
@@ -35,14 +35,11 @@
         <a href="galeria.html" class="cta-button">Descubre más</a>
     </section>
     <script>
-        // Seleccionar el botón hamburguesa y el menú
         const menuToggle = document.querySelector('.menu-toggle');
         const nav = document.querySelector('.nav');
-
-        // Agregar un evento de clic para alternar la visibilidad del menú
         menuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active'); // Muestra u oculta el menú
-            menuToggle.classList.toggle('active'); // Cambia el estilo del botón hamburguesa
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         });
     </script>
 </body>

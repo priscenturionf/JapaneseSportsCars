@@ -1,14 +1,13 @@
-/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilos Globales */
+
 body, html {
-    height: 100%; /* Asegura que la página ocupe toda la altura de la ventana */
-    overflow: hidden; /* Evita el scroll */
+    height: 100%; 
+    overflow: hidden; 
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -16,17 +15,16 @@ body, html {
     background-color: #121212;
 }
 
-/* Header */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    position: absolute; /* Fija el nav sobre la imagen */
+    position: absolute; 
     width: 100%;
-    z-index: 10; /* Hace que el nav quede sobre el contenido */
-    backdrop-filter: blur(5px); /* Efecto de desenfoque */
-    top: 0; /* Asegura que esté en la parte superior */
+    z-index: 10; 
+    backdrop-filter: blur(5px); 
+    top: 0; 
 }
 .header .logo, h1 {
     font-size: 3em;
@@ -36,15 +34,15 @@ body, html {
         0 0 10px #ff003c, 
         0 0 20px #ff003c, 
         0 0 40px #ff003c, 
-        0 0 80px #ff003c; /* Crea el efecto neón */
+        0 0 80px #ff003c;
     animation: flicker 1.5s infinite alternate;
     font-weight: bold;
     letter-spacing: 2px;
-    font-family: 'Bebas Neue', sans-serif; /* Para un estilo más fuerte */
+    font-family: 'Bebas Neue', sans-serif; 
     position: relative;
 }
 
-/* Animación de parpadeo */
+
 @keyframes flicker {
     0% { 
         opacity: 1;
@@ -88,15 +86,15 @@ body, html {
     font-size: 22px;
     text-decoration: none;
     position: relative;
-    padding-bottom: 5px; /* Espacio para el subrayado */
+    padding-bottom: 5px; 
     transition: color 0.3s ease;
 }
 
 .nav a:hover {
-    color: #ff003c; /* Cambia el color del texto al pasar el mouse */
+    color: #ff003c; 
 }
 
-/* Efecto de subrayado neon rojo */
+
 .nav a::after {
     content: '';
     position: absolute;
@@ -104,35 +102,35 @@ body, html {
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #ff003c; /* Color rojo neón */
+    background-color: #ff003c; 
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
 }
 
 .nav a:hover::after {
-    transform: scaleX(1); /* Hace que el subrayado se expanda */
+    transform: scaleX(1); 
     transform-origin: bottom left;
 }
 
 
-/* Hero Section */
+
 .hero {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(img/fondo-pantalla-onda-sintetica.jpg);
+    background-image: url(img/vj48h5hjntxa1.jpg);
     background-size: cover;
     background-position: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
     color: #f2f2f2;
     text-align: center;
     padding: 0 20px;
-    background-color: rgba(0, 0, 0, 0.678); /* Sombra para mejor legibilidad */
+    background-color: rgba(0, 0, 0, 0.678); 
     position: relative;
 }
-/* Hero Section (Capa oscura) */
+
 .hero::before {
     content: '';
     position: absolute;
@@ -140,12 +138,12 @@ body, html {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.37); /* Color oscuro con opacidad */
-    z-index: 1; /* Asegura que la capa oscura quede sobre la imagen, pero debajo del texto */
+    background-color: rgba(0, 0, 0, 0.37); 
+    z-index: 1;  
 }
 .hero h2, .hero p {
     position: relative;
-    z-index: 2; /* Asegura que el texto quede encima de la capa oscura */
+    z-index: 2; 
 }
 
 .hero h2 {
@@ -177,7 +175,7 @@ body, html {
 }
 
 
-/* Grid de Imágenes */
+
 .grid {
     display: grid;
     gap: 15px;
@@ -207,7 +205,7 @@ body, html {
     box-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
 }
 
-/* Footer */
+
 .footer {
     background-color: #121212;
     text-align: center;
@@ -216,20 +214,20 @@ body, html {
     font-size: 0.9em;
 }
 
-/* Responsive: Ajustes para pantallas pequeñas */
+
 @media (max-width: 768px) {
     .header {
-        flex-direction: column; /* Apilar el logo y el menú en dispositivos pequeños */
+        flex-direction: column;
         text-align: center;
     }
 
     .header h1 {
-        font-size: 1.5rem; /* Reducir tamaño del logo */
+        font-size: 1.5rem; 
     }
 
-    /* Menú en hamburguesa */
+
     .nav {
-        display: none; /* Ocultar menú por defecto */
+        display: none;
         flex-direction: column;
         gap: 15px;
         margin-top: 20px;
@@ -239,7 +237,7 @@ body, html {
         font-size: 1.2rem;
     }
 
-    /* Botón hamburguesa */
+
     .menu-toggle {
         display: block;
         cursor: pointer;
@@ -254,12 +252,12 @@ body, html {
         transition: all 0.3s;
     }
 
-    /* Mostrar el menú cuando se active */
+
     .nav.active {
         display: flex;
     }
 
-    /* Estilo de la hamburguesa cuando se activa */
+
     .menu-toggle.active span:nth-child(1) {
         transform: rotate(45deg);
         position: relative;
@@ -277,13 +275,12 @@ body, html {
     }
 }
 
-/* Para pantallas grandes */
 @media (min-width: 769px) {
     .nav {
         display: flex;
     }
 
     .menu-toggle {
-        display: none; /* Ocultar el botón de hamburguesa en pantallas grandes */
+        display: none; 
     }
 }

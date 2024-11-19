@@ -21,31 +21,29 @@ const images = [
 ];
 
 
-// Función para abrir el lightbox
+
 function openLightbox(imageSrc, imageTitle) {
-    currentImageIndex = images.findIndex(image => image.src === imageSrc); // Actualiza el índice de la imagen
+    currentImageIndex = images.findIndex(image => image.src === imageSrc); 
     document.getElementById('lightbox-img').src = imageSrc;
     document.getElementById('lightbox-title').textContent = imageTitle;
     document.getElementById('lightbox').style.display = 'flex';
 }
 
-// Función para cerrar el lightbox
+
 function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
 }
 
-// Función para cambiar la imagen (previo o siguiente)
+
 function changeImage(direction) {
     currentImageIndex += direction;
 
-    // Asegura que el índice no se salga del rango
     if (currentImageIndex < 0) {
-        currentImageIndex = images.length - 1; // Si es menor a 0, va al final
+        currentImageIndex = images.length - 1; 
     } else if (currentImageIndex >= images.length) {
-        currentImageIndex = 0; // Si es mayor al tamaño del array, va al inicio
+        currentImageIndex = 0; 
     }
 
-    // Cambia la imagen
     const newImage = images[currentImageIndex];
     document.getElementById('lightbox-img').src = newImage.src;
     document.getElementById('lightbox-title').textContent = newImage.title;

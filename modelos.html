@@ -127,7 +127,6 @@
             </div>
         </div>
 
-    <!-- Lightbox Container -->
     <div id="lightbox" class="lightbox">
         <span class="close" onclick="closeLightbox()">&times;</span>
         <img class="lightbox-content" id="lightbox-img" alt="Imagen en lightbox">
@@ -135,7 +134,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Autos Japoneses | Todos los derechos reservados</p>
+        <p>&copy; 2024 Japanese Sports Cars | Todos los derechos reservados</p>
     </footer>
 
     <script>
@@ -144,14 +143,14 @@
 
         logos.forEach(logo => {
             logo.addEventListener('click', function() {
-                const brandId = this.getAttribute('data-brand'); // Obtenemos el nombre de la marca
-                // Ocultamos todos los modelos
+                const brandId = this.getAttribute('data-brand'); 
+
                 models.forEach(model => {
-                    model.style.display = 'none'; // Los modelos no se mostrarán inicialmente
+                    model.style.display = 'none';
                 });
-                // Mostramos solo los modelos correspondientes a la marca seleccionada
+        
                 document.querySelectorAll('.' + brandId).forEach(model => {
-                    model.style.display = 'block'; // Hacemos visibles los modelos de la marca seleccionada
+                    model.style.display = 'block';
                 });
             });
         });
